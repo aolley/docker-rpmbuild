@@ -8,6 +8,7 @@ RUN yum update -y \
    autoconf \
    automake \
    cmake \
+   curl \
    gcc \
    gcc-c++ \
    git \
@@ -20,7 +21,12 @@ RUN yum update -y \
    rpm-build \
    sudo \
    tree \
+   wget \
    which \
    yum-utils \
  && yum clean all \
  && rm -rf /var/cache/yum
+
+RUN wget https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 -O gosu \
+ && chmod +x gosu \
+ && mv gosu /usr/local/sbin/
